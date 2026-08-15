@@ -2,7 +2,10 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
     <title>M2 Solutions</title>
     <meta
       name="description"
@@ -20,57 +23,33 @@
     <link rel="stylesheet" href="../styles.css" />
   </head>
   <body>
-    <header class="site-header">
-      <a class="brand" href="#top">
-        <img
-          class="logo"
-          src="../logo.png"
-          width="256"
-          height="256"
-          alt="M2 Solutions"
-        />
-        <span class="wordmark">M2 Solutions</span>
-      </a>
-      <div class="header-end">
-        <nav aria-label="Navigation principale">
-          <a href="#about">À propos</a>
-          <a href="#contact">Contact</a>
-        </nav>
-        <nav class="lang-switch" aria-label="Langue">
-          <a href="../" hreflang="en" lang="en">EN</a>
-          <span aria-hidden="true">·</span>
-          <a href="./" hreflang="fr" lang="fr" aria-current="page">FR</a>
-        </nav>
-      </div>
-    </header>
+    <nav class="lang" aria-label="Langue">
+      <a href="../" hreflang="en" lang="en">EN</a>
+      <span aria-hidden="true">·</span>
+      <a href="./" hreflang="fr" lang="fr" aria-current="page">FR</a>
+    </nav>
 
-    <main id="top">
-      <section class="hero" aria-labelledby="hero-title">
-        <p class="eyebrow">Studio</p>
-        <h1 id="hero-title">M2 Solutions</h1>
-        <p class="lede">Nous créons des solutions web pour les entreprises.</p>
-      </section>
-
-      <section id="about" class="about" aria-labelledby="about-title">
-        <h2 id="about-title">À propos</h2>
-        <p>
-          Mathieu Laureti et Mathis Côté. Deux développeurs qui conçoivent des
-          sites et des outils web pour des entreprises qui veulent quelque chose
-          de clair, fiable, et à leur image.
-        </p>
-      </section>
-
-      <section id="contact" class="contact" aria-labelledby="contact-title">
-        <h2 id="contact-title">Contact</h2>
-        <p>
-          Écrivez-nous :
-          <a href="mailto:hello@m2solutions.dev">hello@m2solutions.dev</a>
-        </p>
-      </section>
+    <main class="card">
+      <img
+        class="logo"
+        src="../logo.png"
+        width="256"
+        height="256"
+        alt="M2 Solutions"
+      />
+      <h1>M2 Solutions</h1>
+      <ul class="names">
+        <li>Mathieu Laureti</li>
+        <li>Mathis Côté</li>
+      </ul>
+      <p class="desc">Nous créons des solutions web pour les entreprises.</p>
+      <a class="contact" href="mailto:hello@m2solutions.dev"
+        >hello@m2solutions.dev</a
+      >
     </main>
 
-    <footer class="site-footer">
-      <p>M2 Solutions</p>
+    <footer class="legal">
+      <p>© 2026 M2 Solutions · Tous droits réservés</p>
     </footer>
   </body>
 </html>
