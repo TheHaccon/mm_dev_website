@@ -44,11 +44,26 @@ main {
 
 .site-header {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
-  padding-block: 1.75rem 1.25rem;
+  padding-block: 1.25rem;
   border-bottom: 1px solid var(--rule);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  min-width: 0;
+}
+
+.logo {
+  display: block;
+  width: 2.5rem;
+  height: 2.5rem;
+  flex-shrink: 0;
 }
 
 .wordmark {
@@ -56,7 +71,12 @@ main {
   font-weight: 600;
   font-size: 1.15rem;
   letter-spacing: 0.02em;
-  text-decoration: none;
+}
+
+.header-end {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
 }
 
 nav {
@@ -68,6 +88,17 @@ nav a {
   text-decoration: none;
   font-size: 0.9rem;
   letter-spacing: 0.04em;
+}
+
+.lang-switch {
+  gap: 0.45rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+}
+
+.lang-switch a[aria-current="page"] {
+  color: var(--accent);
+  pointer-events: none;
 }
 
 .hero {
@@ -139,7 +170,13 @@ h2 {
   .site-header {
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.75rem;
+    gap: 0.85rem;
+  }
+
+  .header-end {
+    width: 100%;
+    justify-content: space-between;
+    gap: 1rem;
   }
 
   .hero {

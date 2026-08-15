@@ -2,7 +2,7 @@
 
 One-page site for [M2 Solutions](https://mathieulaureti.github.io/mm_dev_website/) — Mathieu Laureti et Mathis Côté. We create web solutions for business.
 
-Static HTML/CSS in `site/`, published to GitHub Pages from `main`.
+Static HTML/CSS in `site/`, published to GitHub Pages from `main`. English at `/`, French at `/fr/`. Placeholder mark is `site/logo.png` — replace that file when you have the real logo.
 
 ## Preview locally
 
