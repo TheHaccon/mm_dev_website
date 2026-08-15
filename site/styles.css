@@ -1,17 +1,16 @@
 :root {
-  --page: #efe6d4;
-  --card: #2c2722;
-  --on-card: #f3ead8;
-  --on-card-soft: #cbbfaa;
+  --page: #f5efe6;
+  --card: #ffffff;
   --ink: #1c1914;
+  --ink-soft: #5c5348;
   --muted: #a89c86;
-  --accent: #c45a3a;
+  --accent: #8c2f1b;
   --pad: max(1.15rem, env(safe-area-inset-left));
-  --radius: 1.6rem;
+  --radius: 1.5rem;
   --shadow:
-    0 1px 1px rgba(28, 25, 20, 0.06),
-    0 12px 28px rgba(28, 25, 20, 0.12),
-    0 32px 64px rgba(28, 25, 20, 0.1);
+    0 2px 4px rgba(28, 25, 20, 0.05),
+    0 10px 20px rgba(28, 25, 20, 0.07),
+    0 28px 56px rgba(28, 25, 20, 0.14);
 }
 
 *,
@@ -73,9 +72,11 @@ a {
 }
 
 .card {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  overflow: hidden;
   aspect-ratio: 5 / 8;
   width: min(
     20.5rem,
@@ -83,14 +84,21 @@ a {
     calc((100dvh - 7.5rem) * 5 / 8)
   );
   margin: auto;
-  padding: clamp(1.4rem, 5.5vw, 2.15rem);
-  color: var(--on-card);
-  background:
-    linear-gradient(180deg, rgba(243, 234, 216, 0.07), transparent 32%),
-    var(--card);
-  border: 1px solid rgba(243, 234, 216, 0.08);
+  padding: clamp(1.5rem, 5.5vw, 2.25rem);
+  background: var(--card);
+  border: 1px solid rgba(28, 25, 20, 0.06);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: var(--accent);
 }
 
 .logo {
@@ -98,7 +106,7 @@ a {
   width: 3.75rem;
   height: 3.75rem;
   margin-bottom: 1.35rem;
-  border-radius: 0.95rem;
+  border-radius: 0.85rem;
 }
 
 h1 {
@@ -114,7 +122,7 @@ h1 {
   list-style: none;
   margin: 1rem 0 0;
   padding: 0;
-  color: var(--on-card-soft);
+  color: var(--ink-soft);
   font-size: 0.98rem;
   line-height: 1.45;
 }
@@ -132,7 +140,6 @@ h1 {
 .contact {
   margin-top: auto;
   padding-top: 1.25rem;
-  color: var(--on-card-soft);
   font-size: 0.92rem;
   letter-spacing: 0.01em;
   text-underline-offset: 0.2em;
@@ -182,10 +189,10 @@ h1 {
 
 @media (hover: hover) and (min-width: 40rem) {
   .card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-5px);
     box-shadow:
-      0 2px 2px rgba(28, 25, 20, 0.06),
-      0 16px 36px rgba(28, 25, 20, 0.14),
-      0 40px 72px rgba(28, 25, 20, 0.12);
+      0 4px 8px rgba(28, 25, 20, 0.06),
+      0 16px 32px rgba(28, 25, 20, 0.1),
+      0 48px 80px rgba(28, 25, 20, 0.16);
   }
 }
