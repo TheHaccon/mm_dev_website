@@ -1,6 +1,6 @@
 # M2 Solution
 
-One-page site for [M2 Solution](https://m2solution.ca) — Mathis Côté et Mathieu Laureti. We create web solutions for business.
+One-page site for [M2 Solution](https://m2solution.ca) — Mathis Côté et Mathieu Laureti. We build digital tools for business.
 
 Static HTML/CSS in `site/`, published to GitHub Pages from `main`. English at `/`, French at `/fr/`. Placeholder mark is `site/logo.png` — replace that file when you have the real logo.
 

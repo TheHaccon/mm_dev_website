@@ -21,6 +21,7 @@
   back.append(inner);
   flipper.append(back);
 
+  const html = document.documentElement;
   const ease = (t) =>
     t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
   const clamp = (n, a, b) => Math.min(b, Math.max(a, n));
@@ -51,7 +52,7 @@
     const pinW = pin.clientWidth;
     inner.style.width = `${pinW}px`;
     measureCard();
-    flipDist = Math.round(pinH * 0.36);
+    flipDist = Math.round(pinH * 1.2);
     innerDist = Math.max(0, inner.scrollHeight - pinH);
     stage.style.height = `${pinH + flipDist + innerDist}px`;
   };
@@ -89,6 +90,7 @@
   };
 
   let ticking = false;
+  let buttonAnim = 0;
   const requestUpdate = () => {
     if (ticking) return;
     ticking = true;
@@ -98,16 +100,70 @@
     });
   };
 
+  const setScrollTop = (y) => {
+    html.scrollTop = y;
+    document.body.scrollTop = y;
+    window.scrollTo({ top: y, left: 0, behavior: "auto" });
+  };
+
+  const stopButtonAnim = (event) => {
+    if (event && hint && hint.contains(event.target)) return;
+    if (buttonAnim === 0) return;
+    buttonAnim += 1;
+    html.style.scrollBehavior = "";
+  };
+
+  const scrollFlipWithButton = (duration) => {
+    const start = window.scrollY || html.scrollTop;
+    const dest = flipDist;
+    const delta = dest - start;
+    if (delta < 1) return;
+
+    const id = ++buttonAnim;
+    const t0 = performance.now();
+    html.style.scrollBehavior = "auto";
+
+    const step = (now) => {
+      if (id !== buttonAnim) return;
+      const p = Math.min(1, (now - t0) / duration);
+      setScrollTop(start + delta * ease(p));
+      update();
+      if (p < 1) {
+        requestAnimationFrame(step);
+      } else {
+        html.style.scrollBehavior = "";
+      }
+    };
+
+    requestAnimationFrame(step);
+  };
+
   if (hint) {
     hint.addEventListener("click", (event) => {
       event.preventDefault();
-      window.scrollTo({ top: flipDist, behavior: "smooth" });
+      event.stopPropagation();
+      scrollFlipWithButton(3000);
     });
   }
 
   layout();
   update();
 
+  window.addEventListener("wheel", stopButtonAnim, { passive: true });
+  window.addEventListener("touchmove", stopButtonAnim, { passive: true });
+  window.addEventListener("keydown", (event) => {
+    if (
+      event.key === "ArrowDown" ||
+      event.key === "ArrowUp" ||
+      event.key === "PageDown" ||
+      event.key === "PageUp" ||
+      event.key === "Home" ||
+      event.key === "End" ||
+      event.key === " "
+    ) {
+      stopButtonAnim(event);
+    }
+  });
   window.addEventListener("scroll", requestUpdate, { passive: true });
   window.addEventListener("resize", () => {
     layout();

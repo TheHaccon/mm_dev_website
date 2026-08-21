@@ -153,8 +153,8 @@ h1 {
 }
 
 .contact {
-  margin-top: auto;
-  padding-top: 1.25rem;
+  margin-top: 0;
+  padding-top: 0.85rem;
   font-size: 0.92rem;
   letter-spacing: 0.01em;
   text-underline-offset: 0.2em;
@@ -170,42 +170,27 @@ h1 {
   padding-top: 0;
 }
 
-.scroll {
-  justify-self: center;
-  display: flex;
-  flex-direction: column;
+.more {
+  display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  padding: 0.35rem var(--pad) 1.1rem;
-  color: var(--muted);
-  font-size: 0.62rem;
-  letter-spacing: 0.16em;
+  justify-content: center;
+  margin-top: auto;
+  margin-bottom: auto;
+  padding: 0.62rem 1.15rem;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  color: var(--accent);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   text-decoration: none;
+  pointer-events: auto;
+  cursor: pointer;
 }
 
-.scroll::after {
-  content: "";
-  width: 0.38rem;
-  height: 0.38rem;
-  border-right: 1.5px solid currentColor;
-  border-bottom: 1.5px solid currentColor;
-  transform: rotate(45deg);
-  animation: nudge 1.8s ease-in-out infinite;
-}
-
-.scroll:hover {
-  color: var(--ink);
-}
-
-@keyframes nudge {
-  0%,
-  100% {
-    transform: rotate(45deg) translate(0, 0);
-  }
-  50% {
-    transform: rotate(45deg) translate(0.12rem, 0.12rem);
-  }
+.more:hover {
+  background: var(--accent);
+  color: var(--card);
 }
 
 .panel {
@@ -446,7 +431,6 @@ h1 {
     scroll-behavior: auto;
   }
 
-  .scroll::after,
   .panel {
     animation: none;
   }
@@ -534,14 +518,6 @@ h1 {
   transform: translateX(-50%);
   transform-origin: top center;
   will-change: transform;
-}
-
-.has-flip .scroll {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  pointer-events: auto;
 }
 
 .has-flip .panel {
