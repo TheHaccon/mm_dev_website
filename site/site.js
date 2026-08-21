@@ -84,7 +84,7 @@
         target.scrollIntoView();
         return;
       }
-      scrollDownTo(target, 1500);
+      scrollDownTo(target, 800);
     });
   });
 
