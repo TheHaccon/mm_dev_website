@@ -28,6 +28,11 @@ html.is-scrolling {
   scroll-behavior: auto !important;
 }
 
+html.is-menu-open,
+html.is-menu-open body {
+  overflow: hidden;
+}
+
 html,
 body {
   margin: 0;
@@ -53,8 +58,9 @@ a {
   left: 0;
   z-index: 20;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 1rem;
+  gap: 0.35rem 1rem;
   min-height: var(--header);
   padding: 0.4rem var(--pad);
   background: color-mix(in srgb, var(--page) 88%, transparent);
@@ -64,9 +70,14 @@ a {
   transition: transform 0.5s ease, border-color 0.35s ease;
 }
 
-.topbar.is-on {
+.topbar.is-on,
+.topbar.is-open {
   transform: translateY(0);
   border-bottom-color: rgba(28, 25, 20, 0.08);
+}
+
+.topbar.is-open {
+  background: var(--page);
 }
 
 .topbar-logo {
@@ -77,46 +88,113 @@ a {
   white-space: nowrap;
 }
 
-.topbar nav {
-  display: flex;
-  flex: 1;
-  justify-content: flex-end;
-  flex-wrap: nowrap;
-  gap: 0.15rem 0.9rem;
-  overflow-x: auto;
-  font-size: 0.68rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
-  scrollbar-width: none;
+.menu-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  margin-left: auto;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--ink);
+  cursor: pointer;
 }
 
-.topbar nav::-webkit-scrollbar {
+.menu-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 0.4rem;
+}
+
+.menu-btn-icon,
+.menu-btn-icon::before,
+.menu-btn-icon::after {
+  display: block;
+  width: 1.2rem;
+  height: 1.5px;
+  background: currentColor;
+  border-radius: 99px;
+  transition: transform 0.2s ease, top 0.2s ease, background-color 0.2s ease;
+}
+
+.menu-btn-icon {
+  position: relative;
+}
+
+.menu-btn-icon::before,
+.menu-btn-icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.menu-btn-icon::before {
+  top: -6px;
+}
+
+.menu-btn-icon::after {
+  top: 6px;
+}
+
+.topbar.is-open .menu-btn-icon {
+  background: transparent;
+}
+
+.topbar.is-open .menu-btn-icon::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.topbar.is-open .menu-btn-icon::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+.menu {
   display: none;
+  flex-basis: 100%;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 0.15rem 0 1rem;
 }
 
-.topbar nav a {
+.topbar.is-open .menu {
+  display: flex;
+}
+
+.sections {
+  display: flex;
+  flex-direction: column;
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.sections a {
+  padding: 0.8rem 0;
+  border-bottom: 1px solid rgba(28, 25, 20, 0.08);
   text-decoration: none;
-  padding: 0.45rem 0;
 }
 
-.topbar nav a:hover,
-.topbar nav a[aria-current="location"] {
+.sections a:hover,
+.sections a[aria-current="location"] {
   color: var(--accent);
 }
 
 .lang {
   display: flex;
   align-items: center;
-  margin-left: auto;
   gap: 0.15rem;
   font-size: 0.68rem;
   letter-spacing: 0.16em;
   color: var(--muted);
 }
 
-.topbar .lang {
-  margin-left: 0;
+.menu .lang {
+  margin-top: 0.55rem;
 }
 
 .lang a {
@@ -403,11 +481,37 @@ a {
 }
 
 @media (min-width: 52rem) {
-  .topbar nav {
+  .menu-btn {
+    display: none;
+  }
+
+  .menu {
+    display: flex;
+    flex-basis: auto;
+    flex: 1;
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+    gap: 1rem;
+  }
+
+  .sections {
+    flex: 1;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    gap: 0.15rem 1.1rem;
     font-size: 0.72rem;
     letter-spacing: 0.12em;
-    gap: 0.15rem 1.1rem;
-    overflow: visible;
+  }
+
+  .sections a {
+    padding: 0.45rem 0;
+    border-bottom: 0;
+  }
+
+  .menu .lang {
+    margin-top: 0;
   }
 
   .logo {
@@ -442,12 +546,17 @@ a {
       0 48px 80px rgba(28, 25, 20, 0.16);
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
 
   .topbar,
-  .reveal {
+  .reveal,
+  .menu-btn-icon,
+  .menu-btn-icon::before,
+  .menu-btn-icon::after {
     transition: none;
   }
 

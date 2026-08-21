@@ -2,7 +2,38 @@
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const topbar = document.querySelector("[data-topbar]");
   const hero = document.querySelector("[data-hero]");
+  const menuBtn = document.querySelector("[data-menu-btn]");
+  const menu = document.querySelector("[data-menu]");
   const root = document.scrollingElement || document.documentElement;
+  const desktop = window.matchMedia("(min-width: 52rem)");
+
+  const setMenuOpen = (open) => {
+    if (!topbar || !menuBtn) return;
+    const next = Boolean(open) && !desktop.matches;
+    topbar.classList.toggle("is-open", next);
+    menuBtn.setAttribute("aria-expanded", String(next));
+    document.documentElement.classList.toggle("is-menu-open", next);
+    const label = next
+      ? menuBtn.getAttribute("data-label-close")
+      : menuBtn.getAttribute("data-label-open");
+    if (label) menuBtn.setAttribute("aria-label", label);
+  };
+
+  if (menuBtn && menu) {
+    menuBtn.addEventListener("click", () => {
+      setMenuOpen(!topbar.classList.contains("is-open"));
+    });
+    menu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => setMenuOpen(false));
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") setMenuOpen(false);
+    });
+    document.addEventListener("click", (event) => {
+      if (!topbar.contains(event.target)) setMenuOpen(false);
+    });
+    desktop.addEventListener("change", () => setMenuOpen(false));
+  }
 
   if (topbar && hero) {
     const onHero = new IntersectionObserver(
