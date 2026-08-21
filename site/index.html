@@ -6,21 +6,31 @@
       name="viewport"
       content="width=device-width, initial-scale=1, viewport-fit=cover"
     />
-    <title>M2 Solutions</title>
+    <title>M2 Solution</title>
     <meta
       name="description"
-      content="M2 Solutions — Mathieu Laureti and Mathis Côté. We create web solutions for business."
+      content="M2 Solution — Mathis Côté and Mathieu Laureti. We create web solutions for business."
     />
-    <link rel="alternate" hreflang="en" href="./" />
-    <link rel="alternate" hreflang="fr" href="./fr/" />
-    <link rel="alternate" hreflang="x-default" href="./" />
+    <link rel="canonical" href="https://m2solution.ca/" />
+    <link rel="alternate" hreflang="en" href="https://m2solution.ca/" />
+    <link rel="alternate" hreflang="fr" href="https://m2solution.ca/fr/" />
+    <link rel="alternate" hreflang="x-default" href="https://m2solution.ca/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://m2solution.ca/" />
+    <meta property="og:title" content="M2 Solution" />
+    <meta
+      property="og:description"
+      content="M2 Solution — Mathis Côté and Mathieu Laureti. We create web solutions for business."
+    />
+    <meta property="og:locale" content="en_CA" />
+    <meta property="og:locale:alternate" content="fr_CA" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Sans:wght@400;500&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=card" />
+    <link rel="stylesheet" href="styles.css?v=more" />
   </head>
   <body>
     <nav class="lang" aria-label="Language">
@@ -29,27 +39,240 @@
       <a href="./fr/" hreflang="fr" lang="fr">FR</a>
     </nav>
 
-    <main class="card">
-      <img
-        class="logo"
-        src="logo.png"
-        width="256"
-        height="256"
-        alt="M2 Solutions"
-      />
-      <h1>M2 Solutions</h1>
-      <ul class="names">
-        <li>Mathieu Laureti</li>
-        <li>Mathis Côté</li>
-      </ul>
-      <p class="desc">We create web solutions for business.</p>
-      <a class="contact" href="mailto:hello@m2solutions.dev"
-        >hello@m2solutions.dev</a
-      >
+    <div class="stage" data-flip-stage>
+      <div class="pin" data-flip-pin>
+        <header class="hero">
+          <div class="flipper" data-flip-card>
+            <article class="card face face-front">
+              <img
+                class="logo"
+                src="logo.png"
+                width="256"
+                height="256"
+                alt="M2 Solution"
+              />
+              <h1>M2 Solution</h1>
+              <ul class="names">
+                <li>Mathis Côté</li>
+                <li>Mathieu Laureti</li>
+              </ul>
+              <p class="desc">We create web solutions for business.</p>
+              <a class="contact" href="mailto:contact@m2solution.ca"
+                >contact@m2solution.ca</a
+              >
+            </article>
+          </div>
+          <a class="scroll" data-flip-hint href="#about">More</a>
+        </header>
+      </div>
+    </div>
+
+    <main data-flip-site>
+      <header class="masthead">
+        <p>M2 Solution</p>
+        <p>Québec</p>
+      </header>
+
+      <section id="about" class="panel">
+        <p class="kicker">About</p>
+        <h2>Two people. One studio.</h2>
+        <p>
+          M2 Solution is Mathis Côté and Mathieu Laureti. We design and build
+          web solutions for businesses that need a presence that is clear,
+          considered, and built to last.
+        </p>
+        <p>
+          Based in Québec. We work in French and English — the way your clients
+          actually speak.
+        </p>
+      </section>
+
+      <section id="work" class="panel">
+        <p class="kicker">What we do</p>
+        <h2>Web work that serves the business.</h2>
+        <ul class="offers">
+          <li>
+            <h3>Sites</h3>
+            <p>
+              A public face that explains who you are, what you offer, and why
+              it matters — in the language of your clients.
+            </p>
+          </li>
+          <li>
+            <h3>Tools</h3>
+            <p>
+              Pages and systems that support how you actually work, instead of
+              adding another layer to manage.
+            </p>
+          </li>
+          <li>
+            <h3>Care</h3>
+            <p>
+              We stay with the work after launch: updates, improvements, and
+              the details that keep things running.
+            </p>
+          </li>
+        </ul>
+      </section>
+
+      <section id="for" class="panel">
+        <p class="kicker">Who it’s for</p>
+        <h2>Businesses that want a site that works, not a brochure that ages.</h2>
+        <ul class="offers">
+          <li>
+            <h3>Local businesses</h3>
+            <p>
+              Shops, services, and studios that need to be found, understood,
+              and contacted without friction.
+            </p>
+          </li>
+          <li>
+            <h3>Growing teams</h3>
+            <p>
+              Companies that have outgrown a template and need something that
+              matches how they sell and operate.
+            </p>
+          </li>
+          <li>
+            <h3>Bilingual Québec</h3>
+            <p>
+              Work that has to hold up in French and English, on the same
+              footing — not a translation tacked on at the end.
+            </p>
+          </li>
+        </ul>
+      </section>
+
+      <section id="method" class="panel">
+        <p class="kicker">How we work</p>
+        <h2>Listen, build, stay with it.</h2>
+        <ol class="steps">
+          <li>
+            <h3>Listen</h3>
+            <p>
+              We start with the business: who you serve, what has to be clear,
+              and what can wait. No deck before the problem is named.
+            </p>
+          </li>
+          <li>
+            <h3>Build</h3>
+            <p>
+              Design and development together, in the open. You see the work as
+              it takes shape, not only at the end.
+            </p>
+          </li>
+          <li>
+            <h3>Launch</h3>
+            <p>
+              We put it live, set the domain and mail, and keep a line open for
+              what comes next.
+            </p>
+          </li>
+        </ol>
+      </section>
+
+      <section id="faq" class="panel">
+        <p class="kicker">Questions</p>
+        <h2>The usual ones.</h2>
+        <div class="faq">
+          <details>
+            <summary>How do we start?</summary>
+            <p>
+              Write to
+              <a href="mailto:contact@m2solution.ca">contact@m2solution.ca</a>
+              with a few lines on the business and what you need. We answer,
+              then we talk.
+            </p>
+          </details>
+          <details>
+            <summary>How long does a site take?</summary>
+            <p>
+              It depends on the scope. A clear one-pager can move quickly; a
+              larger site takes the time the content and structure need. We’ll
+              say so before we begin.
+            </p>
+          </details>
+          <details>
+            <summary>Do you work in French and English?</summary>
+            <p>
+              Yes. The studio is bilingual. The site you’re reading is the
+              proof.
+            </p>
+          </details>
+          <details>
+            <summary>Do you host and look after the site?</summary>
+            <p>
+              Yes. We can launch it, point the domain, and stay on for updates
+              so you’re not left with a file and a login.
+            </p>
+          </details>
+        </div>
+      </section>
+
+      <section id="contact" class="panel">
+        <p class="kicker">Contact</p>
+        <h2>A project in mind?</h2>
+        <p>
+          Tell us who you are and what you’re trying to do. We read every
+          message.
+        </p>
+        <a class="contact contact--block" href="mailto:contact@m2solution.ca"
+          >contact@m2solution.ca</a
+        >
+        <p class="aside">Québec · French &amp; English</p>
+      </section>
+    </main>
+      <section id="about" class="panel">
+        <p class="kicker">About</p>
+        <h2>Two people. One studio.</h2>
+        <p>
+          M2 Solution is Mathis Côté and Mathieu Laureti. We design and build
+          web solutions for businesses that need a presence that is clear,
+          considered, and built to last.
+        </p>
+      </section>
+
+      <section id="work" class="panel">
+        <p class="kicker">What we do</p>
+        <h2>Web work that serves the business.</h2>
+        <ul class="offers">
+          <li>
+            <h3>Sites</h3>
+            <p>
+              A public face that explains who you are, what you offer, and why
+              it matters — in the language of your clients.
+            </p>
+          </li>
+          <li>
+            <h3>Tools</h3>
+            <p>
+              Pages and systems that support how you actually work, instead of
+              adding another layer to manage.
+            </p>
+          </li>
+          <li>
+            <h3>Care</h3>
+            <p>
+              We stay with the work after launch: updates, improvements, and
+              the details that keep things running.
+            </p>
+          </li>
+        </ul>
+      </section>
+
+      <section id="contact" class="panel">
+        <p class="kicker">Contact</p>
+        <h2>A project in mind?</h2>
+        <p>Write to us. We read every message.</p>
+        <a class="contact contact--block" href="mailto:contact@m2solution.ca"
+          >contact@m2solution.ca</a
+        >
+      </section>
     </main>
 
     <footer class="legal">
-      <p>© 2026 M2 Solutions · All rights reserved</p>
+      <p>© 2026 M2 Solution · All rights reserved</p>
     </footer>
+    <script src="scroll.js?v=diag" defer></script>
   </body>
 </html>
