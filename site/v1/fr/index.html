@@ -11,12 +11,12 @@
       name="description"
       content="M2 Solution. Mathis Côté et Mathieu Laureti. Nous concevons des outils numériques pour les entreprises."
     />
-    <link rel="canonical" href="https://m2solution.ca/fr/" />
-    <link rel="alternate" hreflang="en" href="https://m2solution.ca/" />
-    <link rel="alternate" hreflang="fr" href="https://m2solution.ca/fr/" />
+    <link rel="canonical" href="https://m2solution.ca/v1/fr/" />
+    <link rel="alternate" hreflang="en" href="https://m2solution.ca/v1/" />
+    <link rel="alternate" hreflang="fr" href="https://m2solution.ca/v1/fr/" />
     <link rel="alternate" hreflang="x-default" href="https://m2solution.ca/" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://m2solution.ca/fr/" />
+    <meta property="og:url" content="https://m2solution.ca/v1/fr/" />
     <meta property="og:title" content="M2 Solution" />
     <meta
       property="og:description"
@@ -30,71 +30,51 @@
       href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Sans:wght@400;500&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../styles.css?v=full2" />
+    <link rel="stylesheet" href="../styles.css?v=morebtn2" />
   </head>
   <body>
-    <header class="topbar" data-topbar>
-      <a class="topbar-logo" href="#top">M2 Solution</a>
-      <nav aria-label="Sections">
-        <a href="#about">À propos</a>
-        <a href="#work">Offre</a>
-        <a href="#for">Pour qui</a>
-        <a href="#method">Façon</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <nav class="lang" aria-label="Langue">
-        <a href="../" hreflang="en" lang="en">EN</a>
-        <span aria-hidden="true">·</span>
-        <a href="./" hreflang="fr" lang="fr" aria-current="page">FR</a>
-      </nav>
-    </header>
+    <nav class="lang" aria-label="Langue">
+      <a href="../" hreflang="en" lang="en">EN</a>
+      <span aria-hidden="true">·</span>
+      <a href="./" hreflang="fr" lang="fr" aria-current="page">FR</a>
+    </nav>
 
-    <section class="hero" id="top" data-hero>
-      <nav class="lang hero-lang" aria-label="Langue">
-        <a href="../" hreflang="en" lang="en">EN</a>
-        <span aria-hidden="true">·</span>
-        <a href="./" hreflang="fr" lang="fr" aria-current="page">FR</a>
-      </nav>
-      <article class="card">
-        <img
-          class="logo"
-          src="../logo.png"
-          width="256"
-          height="256"
-          alt="M2 Solution"
-        />
-        <h1>M2 Solution</h1>
-        <ul class="names">
-          <li>Mathis Côté</li>
-          <li>Mathieu Laureti</li>
-        </ul>
-        <p class="desc">
-          Nous concevons des outils numériques pour les entreprises.
-        </p>
-        <a class="more" href="#about" data-scroll-down>En savoir plus</a>
-        <a class="card-mail" href="mailto:contact@m2solution.ca"
-          >contact@m2solution.ca</a
-        >
-      </article>
-    </section>
+    <div class="stage" data-flip-stage>
+      <div class="pin" data-flip-pin>
+        <header class="hero">
+          <div class="flipper" data-flip-card>
+            <article class="card face face-front">
+              <img
+                class="logo"
+                src="../../logo.png"
+                width="256"
+                height="256"
+                alt="M2 Solution"
+              />
+              <h1>M2 Solution</h1>
+              <ul class="names">
+                <li>Mathis Côté</li>
+                <li>Mathieu Laureti</li>
+              </ul>
+              <p class="desc">
+                Nous concevons des outils numériques pour les entreprises.
+              </p>
+              <a class="more" data-flip-hint href="#about">En savoir plus</a>
+              <a class="contact" href="mailto:contact@m2solution.ca"
+                >contact@m2solution.ca</a
+              >
+            </article>
+          </div>
+        </header>
+      </div>
+    </div>
 
-    <main>
-      <section id="about" class="band reveal" data-reveal>
-        <p class="kicker">À propos</p>
-        <h2>Deux personnes. Un studio.</h2>
-        <p>
-          M2 Solution, c’est Mathis Côté et Mathieu Laureti. Nous concevons et
-          réalisons des outils numériques ajustés à vos besoins et faits pour
-          durer.
-        </p>
-        <p>
-          Basés au Québec. Nous menons chaque projet en français, en anglais,
-          ou dans les deux langues.
-        </p>
-      </section>
+    <main data-flip-site>
+      <header class="masthead">
+        <p>M2 Solution</p>
+      </header>
 
-      <section id="work" class="band reveal" data-reveal>
+      <section id="work" class="panel">
         <p class="kicker">Ce que nous faisons</p>
         <h2>Des outils adaptés à votre entreprise.</h2>
         <ul class="offers">
@@ -129,7 +109,7 @@
         </ul>
       </section>
 
-      <section id="for" class="band reveal" data-reveal>
+      <section id="for" class="panel">
         <p class="kicker">Pour qui</p>
         <h2>Des entreprises qui veulent un site qui travaille, pas une vitrine qui vieillit.</h2>
         <ul class="offers">
@@ -150,7 +130,7 @@
         </ul>
       </section>
 
-      <section id="method" class="band reveal" data-reveal>
+      <section id="method" class="panel">
         <p class="kicker">Notre façon</p>
         <h2>Écouter, construire, lancer.</h2>
         <ol class="steps">
@@ -177,7 +157,7 @@
         </ol>
       </section>
 
-      <section id="faq" class="band reveal" data-reveal>
+      <section id="faq" class="panel">
         <p class="kicker">Questions</p>
         <h2>FAQ</h2>
         <div class="faq">
@@ -215,19 +195,35 @@
         </div>
       </section>
 
-      <section id="contact" class="band reveal" data-reveal>
+      <section id="contact" class="panel">
         <p class="kicker">Contact</p>
         <h2>Un projet en tête&nbsp;?</h2>
-        <p>Dites-nous qui vous êtes et ce que vous voulez créer.</p>
-        <a class="mail" href="mailto:contact@m2solution.ca"
+        <p>
+          Dites-nous qui vous êtes et ce que vous voulez créer.
+        </p>
+        <a class="contact contact--block" href="mailto:contact@m2solution.ca"
           >contact@m2solution.ca</a
         >
+      </section>
+
+      <section id="about" class="panel">
+        <p class="kicker">À propos</p>
+        <h2>Deux personnes. Un studio.</h2>
+        <p>
+          M2 Solution, c’est Mathis Côté et Mathieu Laureti. Nous concevons et
+          réalisons des outils numériques ajustés à vos besoins et faits pour
+          durer.
+        </p>
+        <p>
+          Basés au Québec. Nous menons chaque projet en français, en anglais,
+          ou dans les deux langues.
+        </p>
       </section>
     </main>
 
     <footer class="legal">
       <p>© 2026 M2 Solution · Tous droits réservés</p>
     </footer>
-    <script src="../site.js?v=down2" defer></script>
+    <script src="../scroll.js?v=btnslow2" defer></script>
   </body>
 </html>

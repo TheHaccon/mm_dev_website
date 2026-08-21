@@ -24,6 +24,8 @@ You can also run the workflow by hand: Actions → Deploy GitHub Pages → Run w
 
 Live URL: [m2solution.ca](https://m2solution.ca) (GitHub Pages fallback: https://thehaccon.github.io/mm_dev_website/)
 
+The original flip-card layout is kept at `site/v1/`. Preview: http://localhost:8000/v1/ and http://localhost:8000/v1/fr/.
+
 ## Custom domain (m2solution.ca)
 
 `site/CNAME` is already set to `m2solution.ca`. After the domain is registered:
