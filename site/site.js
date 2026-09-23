@@ -43,6 +43,46 @@
       { threshold: 0.18 }
     );
     onHero.observe(hero);
+  } else if (topbar) {
+    topbar.classList.add("is-on");
+  }
+
+  const cvButtons = document.querySelectorAll("[data-cv-person]");
+  const cvPanels = document.querySelectorAll("[data-cv-panel]");
+
+  if (cvButtons.length && cvPanels.length) {
+    const showCv = (id) => {
+      const next = id === "mathieu" ? "mathieu" : "mathis";
+      cvPanels.forEach((panel) => {
+        panel.hidden = panel.getAttribute("data-cv-panel") !== next;
+      });
+      cvButtons.forEach((btn) => {
+        btn.setAttribute(
+          "aria-pressed",
+          String(btn.getAttribute("data-cv-person") === next)
+        );
+      });
+      if (location.hash.replace("#", "") !== next) {
+        history.replaceState(null, "", "#" + next);
+      }
+      document.querySelectorAll(".lang a[hreflang]").forEach((link) => {
+        const url = new URL(link.getAttribute("href"), location.href);
+        url.hash = next;
+        const path = `${url.pathname}${url.search}${url.hash}`;
+        link.setAttribute("href", path);
+      });
+    };
+
+    cvButtons.forEach((btn) => {
+      btn.addEventListener("click", () =>
+        showCv(btn.getAttribute("data-cv-person"))
+      );
+    });
+
+    window.addEventListener("hashchange", () =>
+      showCv(location.hash.replace("#", ""))
+    );
+    showCv(location.hash.replace("#", ""));
   }
 
   const ease = (t) =>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="robots" content="noindex" />
+    <title>CV · M2 Solution</title>
+    <meta
+      name="description"
+      content="CV de Mathis Côté et de Mathieu Laureti."
+    />
+    <link rel="canonical" href="https://m2solution.ca/fr/cv/" />
+    <link rel="alternate" hreflang="en" href="https://m2solution.ca/en/cv/" />
+    <link rel="alternate" hreflang="fr" href="https://m2solution.ca/fr/cv/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Sans:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../styles.css?v=cv5" />
+  </head>
+  <body class="cv-page">
+    <header class="topbar is-on" data-topbar>
+      <a class="topbar-logo" href="../">M2 Solution</a>
+      <nav class="lang" aria-label="Langue">
+        <a href="../../en/cv/" hreflang="en" lang="en">EN</a>
+        <span aria-hidden="true">·</span>
+        <a href="./" hreflang="fr" lang="fr" aria-current="page">FR</a>
+      </nav>
+    </header>
+
+    <main class="band">
+      <p class="kicker">CV</p>
+      <h1>Mathis Côté et Mathieu Laureti</h1>
+      <p>Choisissez un profil pour ouvrir le CV correspondant.</p>
+      <div class="cv-switch" role="group" aria-label="Choisir un CV">
+        <button type="button" data-cv-person="mathis" aria-pressed="true">
+          Mathis Côté
+        </button>
+        <button type="button" data-cv-person="mathieu" aria-pressed="false">
+          Mathieu Laureti
+        </button>
+      </div>
+
+      <article class="cv-panel" data-cv-panel="mathis">
+        <h2>Mathis Côté</h2>
+        <div class="cv-pages">
+          <img
+            class="cv-sheet"
+            src="mathis-1.png"
+            width="1224"
+            height="1584"
+            alt="CV de Mathis Côté, page 1"
+          />
+          <img
+            class="cv-sheet"
+            src="mathis-2.png"
+            width="1224"
+            height="1584"
+            alt="CV de Mathis Côté, page 2"
+          />
+        </div>
+        <a class="more" href="mathis.pdf">Télécharger le PDF</a>
+      </article>
+
+      <article class="cv-panel" data-cv-panel="mathieu" hidden>
+        <h2>Mathieu Laureti</h2>
+        <div class="cv-pages">
+          <img
+            class="cv-sheet"
+            src="mathieu-1.png"
+            width="1224"
+            height="1584"
+            alt="CV de Mathieu Laureti, page 1"
+          />
+          <img
+            class="cv-sheet"
+            src="mathieu-2.png"
+            width="1224"
+            height="1584"
+            alt="CV de Mathieu Laureti, page 2"
+          />
+        </div>
+        <a class="more" href="mathieu.pdf">Télécharger le PDF</a>
+      </article>
+    </main>
+
+    <footer class="legal">
+      <p>© 2026 M2 Solution · Tous droits réservés</p>
+    </footer>
+    <script src="../../site.js?v=cv5" defer></script>
+  </body>
+</html>
