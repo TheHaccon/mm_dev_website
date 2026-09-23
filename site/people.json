@@ -1,0 +1,78 @@
+{
+  "mathieu": {
+    "name": "Mathieu Laureti",
+    "tagline": {
+      "en": "Backend & DevOps",
+      "fr": "Backend et DevOps"
+    },
+    "links": [
+      {
+        "title": { "en": "Email", "fr": "Courriel" },
+        "href": "mailto:mathieu.laureti@gmail.com",
+        "label": "mathieu.laureti@gmail.com"
+      },
+      {
+        "title": { "en": "Phone", "fr": "Téléphone" },
+        "href": "tel:+18199686928",
+        "label": "819 968-6928"
+      },
+      {
+        "title": { "en": "GitHub", "fr": "GitHub" },
+        "href": "https://github.com/MathieuLaureti",
+        "label": "github.com/MathieuLaureti"
+      },
+      {
+        "title": { "en": "LinkedIn", "fr": "LinkedIn" },
+        "href": "https://www.linkedin.com/in/mathieu-l-4560212bb",
+        "label": "linkedin.com/in/mathieu-l-4560212bb"
+      }
+    ],
+    "downloads": [
+      {
+        "title": { "en": "Download CV", "fr": "Télécharger le CV" },
+        "file": {
+          "en": "en/cv/mathieu.pdf",
+          "fr": "fr/cv/mathieu_laureti_CV.pdf"
+        }
+      }
+    ]
+  },
+  "mathis": {
+    "name": "Mathis Côté",
+    "tagline": {
+      "en": "Frontend & Cybersecurity",
+      "fr": "Frontend et Cybersécurité"
+    },
+    "links": [
+      {
+        "title": { "en": "Email", "fr": "Courriel" },
+        "href": "mailto:matcote111@gmail.com",
+        "label": "matcote111@gmail.com"
+      },
+      {
+        "title": { "en": "Phone", "fr": "Téléphone" },
+        "href": "tel:+14508300990",
+        "label": "450 830-0990"
+      },
+      {
+        "title": { "en": "GitHub", "fr": "GitHub" },
+        "href": "https://github.com/TheHaccon",
+        "label": "github.com/TheHaccon"
+      },
+      {
+        "title": { "en": "LinkedIn", "fr": "LinkedIn" },
+        "href": "https://www.linkedin.com/in/mathis-c%C3%B4t%C3%A9-57a610167",
+        "label": "linkedin.com/in/mathis-côté-57a610167"
+      }
+    ],
+    "downloads": [
+      {
+        "title": { "en": "Download CV", "fr": "Télécharger le CV" },
+        "file": {
+          "en": "en/cv/mathis.pdf",
+          "fr": "fr/cv/mathis_cote_CV.pdf"
+        }
+      }
+    ]
+  }
+}

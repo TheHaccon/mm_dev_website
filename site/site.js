@@ -47,42 +47,104 @@
     topbar.classList.add("is-on");
   }
 
-  const cvButtons = document.querySelectorAll("[data-cv-person]");
-  const cvPanels = document.querySelectorAll("[data-cv-panel]");
+  const peopleRoot = document.querySelector("[data-people]");
+  if (peopleRoot) {
+    const src = peopleRoot.getAttribute("data-people-src");
+    const lang = document.documentElement.lang === "fr" ? "fr" : "en";
+    const peopleUrl = src ? new URL(src, location.href) : null;
 
-  if (cvButtons.length && cvPanels.length) {
-    const showCv = (id) => {
-      const next = id === "mathieu" ? "mathieu" : "mathis";
-      cvPanels.forEach((panel) => {
-        panel.hidden = panel.getAttribute("data-cv-panel") !== next;
-      });
-      cvButtons.forEach((btn) => {
-        btn.setAttribute(
-          "aria-pressed",
-          String(btn.getAttribute("data-cv-person") === next)
-        );
-      });
-      if (location.hash.replace("#", "") !== next) {
-        history.replaceState(null, "", "#" + next);
-      }
+    const text = (value) => {
+      if (value == null) return "";
+      if (typeof value === "string") return value;
+      return value[lang] || value.en || value.fr || "";
+    };
+
+    const resolveFile = (file) => {
+      const path = text(file);
+      if (!path || !peopleUrl) return "";
+      return new URL(path, peopleUrl).href;
+    };
+
+    const syncLangLinks = (id) => {
       document.querySelectorAll(".lang a[hreflang]").forEach((link) => {
         const url = new URL(link.getAttribute("href"), location.href);
-        url.hash = next;
-        const path = `${url.pathname}${url.search}${url.hash}`;
-        link.setAttribute("href", path);
+        url.hash = id || "";
+        link.setAttribute("href", `${url.pathname}${url.search}${url.hash}`);
       });
     };
 
-    cvButtons.forEach((btn) => {
-      btn.addEventListener("click", () =>
-        showCv(btn.getAttribute("data-cv-person"))
-      );
-    });
+    const render = (data) => {
+      const id = location.hash.replace(/^#/, "").trim().toLowerCase();
+      const person = id && data[id];
+      peopleRoot.replaceChildren();
+      syncLangLinks(person ? id : "");
+      document.title = "M2 Solution";
+      if (!person) return;
 
-    window.addEventListener("hashchange", () =>
-      showCv(location.hash.replace("#", ""))
-    );
-    showCv(location.hash.replace("#", ""));
+      const card = document.createElement("article");
+      card.className = "about-card";
+
+      const name = text(person.name);
+      if (name) {
+        const heading = document.createElement("h1");
+        heading.textContent = name;
+        card.append(heading);
+        document.title = name + " · M2 Solution";
+      }
+
+      const tagline = document.createElement("p");
+      tagline.className = "desc";
+      tagline.textContent = text(person.tagline);
+      card.append(tagline);
+
+      const list = document.createElement("ul");
+      list.className = "about-list";
+      (person.links || []).forEach((item) => {
+        const li = document.createElement("li");
+        const href = item.href || "";
+        const node = href
+          ? document.createElement("a")
+          : document.createElement("div");
+        if (href) node.href = href;
+        const title = document.createElement("span");
+        title.className = "title";
+        title.textContent = text(item.title);
+        const value = document.createElement("span");
+        value.className = "value";
+        value.textContent = text(item.label) || href;
+        node.append(title, value);
+        li.append(node);
+        list.append(li);
+      });
+      card.append(list);
+
+      const actions = document.createElement("div");
+      actions.className = "about-actions";
+      (person.downloads || []).forEach((item) => {
+        const link = document.createElement("a");
+        link.className = "more";
+        link.href = resolveFile(item.file);
+        link.setAttribute("download", "");
+        link.textContent = text(item.title);
+        actions.append(link);
+      });
+      if (actions.childElementCount) card.append(actions);
+
+      peopleRoot.append(card);
+    };
+
+    if (peopleUrl) {
+      fetch(peopleUrl)
+        .then((res) => {
+          if (!res.ok) throw new Error("people");
+          return res.json();
+        })
+        .then((data) => {
+          render(data);
+          window.addEventListener("hashchange", () => render(data));
+        })
+        .catch(() => {});
+    }
   }
 
   const ease = (t) =>
